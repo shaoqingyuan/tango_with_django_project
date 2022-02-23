@@ -5,7 +5,6 @@ from rango.models import Page
 from rango.forms import CategoryForm
 from django.shortcuts import redirect
 from rango.forms import PageForm
-from django.shortcuts import redirect 
 from django.urls import reverse
 
 def index(request):
@@ -18,8 +17,10 @@ def index(request):
     return render(request, 'rango/index.html', context=context_dict)
 
 def about(request):
-    about_context_dict = {'boldmessage': 'This tutorial has been put together by Zanyu Bao'}
-    return render(request, 'rango/about.html', context=about_context_dict)
+    print(request.method)
+    print(request.user)
+    return render(request, 'rango/about.html', {})
+
 
 def show_category(request, category_name_slug):
     context_dict = {}
